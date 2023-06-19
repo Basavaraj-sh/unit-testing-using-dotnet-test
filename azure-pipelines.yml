@@ -21,4 +21,8 @@ steps:
     projects: |
       ./PrimeService
 
-- script: dotnet test './PrimeService.Tests/PrimeService.Tests.csproj' --configuration $(buildConfiguration) --collect "Code coverage"
+- script: dotnet test './PrimeService.Tests/PrimeService.Tests.csproj' --logger trx --configuration $(buildConfiguration) --collect "Code coverage"
+- task: PublishTestResults@2
+  inputs:
+    testRunner: VSTest
+    testResultsFiles: '**/*.trx'
