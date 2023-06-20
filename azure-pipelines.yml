@@ -30,6 +30,6 @@ steps:
 - task: BuildQualityChecks@9
   inputs:
     checkCoverage: true
-    coverageFailOption: 'build'
+    coverageFailOption: 'fixed'
     coverageType: 'blocks'
-    coveragePrecision: '25'
+    coverageThreshold: '60'
