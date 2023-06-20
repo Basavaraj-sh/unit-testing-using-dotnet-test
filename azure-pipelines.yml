@@ -32,4 +32,4 @@ steps:
     checkCoverage: true
     coverageFailOption: 'build'
     coverageType: 'blocks'
-    coveragePrecision: '20'
+    coveragePrecision: '25'
