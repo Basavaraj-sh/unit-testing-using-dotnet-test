@@ -32,7 +32,7 @@ steps:
   displayName: 'Publish code coverage report'
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+    summaryFileLocation: '**/coverage.cobertura.xml'
 - task: BuildQualityChecks@9
   inputs:
     checkCoverage: true
