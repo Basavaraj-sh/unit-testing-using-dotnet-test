@@ -37,10 +37,10 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testRunner: VSTest
-    testResultsFiles: './TestResults/*.trx'
+    testResultsFiles: '**/TestResults/*.trx'
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '**/coverage.cobertura.xml'
+    summaryFileLocation: '**/TestResults/coverage.cobertura.xml'
