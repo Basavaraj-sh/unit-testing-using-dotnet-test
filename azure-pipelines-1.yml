@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
 
 trigger:
-- master
+- none
 
 pool:
   vmImage: 'windows-latest'
@@ -37,10 +37,10 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testRunner: VSTest
-    testResultsFiles: '**/TestResults/*.trx'
+    testResultsFiles: 'D:/a/_temp/TestResults/*.trx'
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '**/TestResults/coverage.cobertura.xml'
+    summaryFileLocation: 'D:/a/_temp/TestResults/coverage.cobertura.xml'
