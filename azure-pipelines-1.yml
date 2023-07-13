@@ -39,8 +39,26 @@ steps:
     testRunner: VSTest
     testResultsFiles: 'D:/a/_temp/TestResults/*.trx'
 
-- task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage report'
+- task: PowerShell@2
   inputs:
-    codeCoverageTool: 'JaCoCo'
-    summaryFileLocation: 'D:/a/_temp/TestResults/*.coverage'
+    targetType: 'inline'
+    script: |
+      # Install ReportGenerator tool
+      dotnet tool install -g dotnet-reportgenerator-globaltool
+      
+      # Specify the path to the .coverage file
+      $coverageFile = 'D:/a/_temp/TestResults/*.coverage'
+      
+      # Specify the output directory for the code coverage report
+      $reportDirectory = 'D:/a/_temp/TestResults/'
+      
+      # Generate the code coverage report using ReportGenerator
+      reportgenerator "-reports:$coverageFile" "-targetdir:$reportDirectory" "-reporttypes:Xml"
+      
+      # Publish the code coverage report as a build artifact
+      Publish-CodeCoverage -Path $reportDirectory -Name "Code Coverage Report"
+#- task: PublishCodeCoverageResults@1
+#  displayName: 'Publish code coverage report'
+#  inputs:
+#    codeCoverageTool: 'JaCoCo'
+#    summaryFileLocation: 'D:/a/_temp/TestResults/*.coverage'
