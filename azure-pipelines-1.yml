@@ -47,7 +47,7 @@ steps:
       dotnet tool install -g dotnet-reportgenerator-globaltool
       
       # Specify the path to the .coverage file
-      $coverageFile = 'D:/a/_temp/TestResults/*.coverage'
+      $coverageFile = 'D:/a/_temp/TestResults/*/*.coverage'
       
       # Specify the output directory for the code coverage report
       $reportDirectory = 'D:/a/_temp/TestResults/'
