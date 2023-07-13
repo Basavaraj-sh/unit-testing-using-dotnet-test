@@ -56,9 +56,10 @@ steps:
       reportgenerator "-reports:$coverageFile" "-targetdir:$reportDirectory" "-reporttypes:Xml"
       
       # Publish the code coverage report as a build artifact
-      Publish-CodeCoverage -Path $reportDirectory -Name "Code Coverage Report"
-#- task: PublishCodeCoverageResults@1
-#  displayName: 'Publish code coverage report'
-#  inputs:
-#    codeCoverageTool: 'JaCoCo'
-#    summaryFileLocation: 'D:/a/_temp/TestResults/*.coverage'
+      #Publish-CodeCoverage -Path $reportDirectory -Name "Code Coverage Report"
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage report'
+  inputs:
+    codeCoverageTool: 'cobertura'
+    summaryFileLocation: 'D:/a/_temp/TestResults/*.xml'
