@@ -44,3 +44,7 @@ steps:
   inputs:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: 'D:/a/_temp/TestResults/*.coverage'
+
+- task: PublishCodeCoverageResults@2
+  inputs:
+    summaryFileLocation: 'D:/a/_temp/TestResults/*.coverage'
