@@ -42,9 +42,5 @@ steps:
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
   inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: 'D:/a/_temp/TestResults/*.coverage'
-
-- task: PublishCodeCoverageResults@2
-  inputs:
+    codeCoverageTool: 'JaCoCo'
     summaryFileLocation: 'D:/a/_temp/TestResults/*.coverage'
