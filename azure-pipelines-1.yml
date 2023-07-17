@@ -64,12 +64,12 @@ steps:
     codeCoverageTool: 'cobertura'
     summaryFileLocation: 'D:/a/_temp/TestResults/*.xml'
 
-- task: BuildQualityChecks@9
-  inputs:
-    checkCoverage: true
-    coverageFailOption: 'fixed'
-    coverageType: 'lines'
-    coverageThreshold: '60'
+#- task: BuildQualityChecks@9
+#  inputs:
+#    checkCoverage: true
+#    coverageFailOption: 'fixed'
+#    coverageType: 'lines'
+#    coverageThreshold: '60'
 
 - task: BuildQualityChecks@9
   inputs:
